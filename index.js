@@ -108,6 +108,7 @@ function setup()
 {
     createCanvas(800,500);
     capture = createCapture(VIDEO);
+    capture.hide()
 }
 
 
