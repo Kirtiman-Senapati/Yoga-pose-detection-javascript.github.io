@@ -63,12 +63,14 @@ function draw()
 /*features and Important Notes 
 
 1. setup funtion under code run once and draw function under code runs multitimes.
+2. how create colourful circles using  function getRandomArbitary(min,max) and draw rgb
+3 Now we learn how acess images and webcam
 
 */
 
 
 
-function setup()
+/*function setup()
 {
     createCanvas(800,500);
     console.log('Setup Fuction');
@@ -76,16 +78,19 @@ function setup()
 
 function getRandomArbitary(min,max)
 {
-    return Math.random() * (max-min) + min;
+    return Math.random() * (max - min) + min;
 }
 
 
 function draw()
 {
-    background(200);
+    r = getRandomArbitary(0,255);
+    g = getRandomArbitary(0,255);
+    b = getRandomArbitary(0,255);
+    //background(200);
     //console.log('Draw function');
-    //fill(255,);
-    //ellipse(mouseX, mouseY, 50, 50);
+    fill(r,g,b);
+    ellipse(mouseX, mouseY, 50, 50);
 
-}
+}*/
 
