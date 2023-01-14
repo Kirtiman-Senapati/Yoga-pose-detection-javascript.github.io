@@ -102,16 +102,16 @@ function draw()
 
 // use global vaiable 1st/then use path in load image method in setup function 
 
-let img1;
+let capture;
 
 function setup()
 {
     createCanvas(800,500);
-    img1 = loadImage('images/img1.jpg');
+    capture = createCapture(VIDEO);
 }
 
 
 function draw()
 {
-    image(img1, 100, 120, 100,100);
+    image(capture, 0, 0, 800,600);
 }
