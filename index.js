@@ -94,3 +94,24 @@ function draw()
 
 }*/
 
+
+
+
+
+//3 Now we learn how acess images and webcam
+
+// use global vaiable 1st/then use path in load image method in setup function 
+
+let img1;
+
+function setup()
+{
+    createCanvas(800,500);
+    img1 = loadImage('images/img1.jpg');
+}
+
+
+function draw()
+{
+    image(img1, 100, 120, 100,100);
+}
