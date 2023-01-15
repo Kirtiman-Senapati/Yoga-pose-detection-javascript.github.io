@@ -163,9 +163,13 @@ function draw()
     image(capture, 0, 0, 800,600);
     fill(255,0,0);
 
-    for(let i=0; i<singlePose.keypoints.length; i++);
+    if(singlePose)
     {
-        ellipse(singlePose.keypoints[i].position.x, singlePose.keypoints[i].position.y, 50);
+        for(let i=0; i<singlePose.keypoints.length; i++){
+            ellipse(singlePose.keypoints[i].position.x, singlePose.keypoints[i].position.y,20);
+        }
     }
+
+   
 }
 
