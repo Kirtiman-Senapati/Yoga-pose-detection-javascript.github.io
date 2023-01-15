@@ -146,15 +146,7 @@ function receivedPoses(poses)
 
     if(poses.length > 0)
     {
-        singlePose = poses[0].pose;
-        noseX = singlePose.nose.x; //cordination stores under nose x  nose y vasriable
-        noseY = singlePose.nose.y;
-        
-        leyeX = singlePose.leftEye.x; //cordination stores under nose x  nose y vasriable
-        leyeY = singlePose.leftEye.y;
-
-        reyeX = singlePose.rightEye.x; //cordination stores under nose x  nose y vasriable
-        reyeY = singlePose.rightEye.y;
+       singlePose = poses[0].pose;
     }
 
     console.log(noseX + " "  + noseY);
@@ -170,10 +162,10 @@ function draw()
 {
     image(capture, 0, 0, 800,600);
     fill(255,0,0);
-    ellipse(reyeX, reyeY,  30);
-    ellipse(leyeX, leyeY,  30);
 
-
-    
+    for(let i=0; i<singlePose.keypoints.length; i++);
+    {
+        ellipse(singlePose.keypoints[i].position.x, singlePose.keypoints[i].position.y, 50);
+    }
 }
 
