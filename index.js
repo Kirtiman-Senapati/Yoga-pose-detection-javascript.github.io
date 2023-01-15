@@ -128,7 +128,7 @@ let posenet;
 let noseX,noseY;
 let reyeX,reyeY;
 let leyeX,leyeY;
-let singlePose;
+let singlePose ,skeleton;
 
 function setup()
 {
@@ -147,6 +147,7 @@ function receivedPoses(poses)
     if(poses.length > 0)
     {
        singlePose = poses[0].pose;
+       skeleton = poses[0].skeleton;
     }
 
     console.log(noseX + " "  + noseY);
@@ -165,8 +166,14 @@ function draw()
 
     if(singlePose)
     {
-        for(let i=0; i<singlePose.keypoints.length; i++){
+        for(leti=0; i<singlePose.keypoints.length; i++)
+        {
             ellipse(singlePose.keypoints[i].position.x, singlePose.keypoints[i].position.y,20);
+        }
+
+        for(letj=0; j<skeleton.length; j++)
+        {
+            line(skeleton[j][0].position.x, skeleton[j][0].position.y, skeleton[j][1].position.x, skeleton[j][1].position.y)
         }
     }
 
