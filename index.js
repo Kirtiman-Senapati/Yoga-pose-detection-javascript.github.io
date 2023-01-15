@@ -132,13 +132,13 @@ function setup()
     capture = createCapture(VIDEO)
     capture.hide();
     posenet = ml5.poseNet(capture, modelLoaded);
-    //create event listner for use callback function 
+    //create event listner for use callback function main things when lower line execute that time execute recieved function collect the data .when human being comes infront of camera recived posture data. this model detect body 17 points 5 facing point 12 body parts  overall if input  skelton it gives 17 points as output   
     posenet.on('pose', receivedPoses);
 }
 
 function receivedPoses(poses)
 {
-    console.log('poses');
+    console.log(poses);
 }
 
 function modelLoaded()
