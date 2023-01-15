@@ -57,15 +57,15 @@ function draw()
 }*/
 
 
-//Main Code Of programme //
+
 
 
 /*features and Important Notes 
 
 1. setup funtion under code run once and draw function under code runs multitimes.
 2. how create colourful circles using  function getRandomArbitary(min,max) and draw rgb
-3 Now we learn how acess images and webcam
-
+3 Now we learn how acess images and webcam in javascript.
+4 Now we learn ml5.js
 */
 
 
@@ -98,7 +98,7 @@ function draw()
 
 
 
-//3 Now we learn how acess images and webcam
+/*3 Now we learn how acess images and webcam
 
 // use global vaiable 1st/then use path in load image method in setup function 
 
@@ -115,4 +115,40 @@ function setup()
 function draw()
 {
     image(capture, 0, 0, 800,600);
+}*/
+
+
+
+//Main Code Of programme //
+
+
+
+let capture;
+let posenet;
+
+function setup()
+{
+    createCanvas(800,500);
+    capture = createCapture(VIDEO)
+    capture.hide();
+    posenet = ml5.poseNet(capture, modelLoaded);
+    //create event listner for use callback function 
+    posenet.on('pose', receivedPoses);
 }
+
+function receivedPoses(poses)
+{
+    console.log('poses');
+}
+
+function modelLoaded()
+{
+    console.log('Model has loaded')
+}
+
+
+function draw()
+{
+    image(capture, 0, 0, 800,600);
+}
+
