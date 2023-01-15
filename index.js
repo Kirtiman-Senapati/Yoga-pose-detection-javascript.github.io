@@ -125,6 +125,7 @@ function draw()
 
 let capture;
 let posenet;
+let noseX,noseY;
 
 function setup()
 {
@@ -139,6 +140,15 @@ function setup()
 function receivedPoses(poses)
 {
     console.log(poses);
+
+    if(poses.length > 0)
+    {
+        singlePose = poses [0];
+        noseX = singlePose.pose.nose.x;
+        noseY = singlePose.pose.nose.y;
+    }
+
+    console.log(noseX + " "  + noseY);
 }
 
 function modelLoaded()
