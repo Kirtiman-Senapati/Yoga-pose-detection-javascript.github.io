@@ -129,7 +129,8 @@ let noseX,noseY;
 let reyeX,reyeY;
 let leyeX,leyeY;
 let singlePose ,skeleton;
-
+//we learn how acess images
+let img1;
 function setup()
 {
     createCanvas(800,500);
@@ -138,6 +139,9 @@ function setup()
     posenet = ml5.poseNet(capture, modelLoaded);
     //create event listner for use callback function main things when lower line execute that time execute recieved function collect the data .when human being comes infront of camera recived posture data. this model detect body 17 points 5 facing point 12 body parts  overall if input  skelton it gives 17 points as output   
     posenet.on('pose', receivedPoses);
+    //load images on face
+    //loadImage('images/img1.jpg');
+
 }
 
 function receivedPoses(poses)
@@ -149,8 +153,6 @@ function receivedPoses(poses)
        singlePose = poses[0].pose;
        skeleton = poses[0].skeleton;
     }
-
-    console.log(noseX + " "  + noseY);
 }
 
 function modelLoaded()
@@ -161,17 +163,18 @@ function modelLoaded()
 
 function draw()
 {
-    image(capture, 0, 0, 800,600);
+    image(capture, 0, 0);
     fill(255,0,0);
 
     if(singlePose)
     {
-        for(leti=0; i<singlePose.keypoints.length; i++)
+        for(let i=0; i<singlePose.keypoints.length; i++)
         {
             ellipse(singlePose.keypoints[i].position.x, singlePose.keypoints[i].position.y,20);
         }
-
-        for(letj=0; j<skeleton.length; j++)
+        stroke(255,255,255);
+        strokeWeight(5);
+        for(let j=0; j<skeleton.length; j++)
         {
             line(skeleton[j][0].position.x, skeleton[j][0].position.y, skeleton[j][1].position.x, skeleton[j][1].position.y)
         }
