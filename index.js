@@ -126,6 +126,8 @@ function draw()
 let capture;
 let posenet;
 let noseX,noseY;
+let reyeX,reyeY;
+let leyeX,leyeY;
 let singlePose;
 
 function setup()
@@ -144,9 +146,15 @@ function receivedPoses(poses)
 
     if(poses.length > 0)
     {
-        singlePose = poses [0];
-        noseX = singlePose.pose.nose.x; //cordination stores under nose x  nose y vasriable
-        noseY = singlePose.pose.nose.y;
+        singlePose = poses[0].pose;
+        noseX = singlePose.nose.x; //cordination stores under nose x  nose y vasriable
+        noseY = singlePose.nose.y;
+        
+        leyeX = singlePose.leftEye.x; //cordination stores under nose x  nose y vasriable
+        leyeY = singlePose.leftEye.y;
+
+        reyeX = singlePose.rightEye.x; //cordination stores under nose x  nose y vasriable
+        reyeY = singlePose.rightEye.y;
     }
 
     console.log(noseX + " "  + noseY);
@@ -154,7 +162,7 @@ function receivedPoses(poses)
 
 function modelLoaded()
 {
-    console.log('Model has loaded')
+    console.log('Model has loaded');
 }
 
 
@@ -162,7 +170,10 @@ function draw()
 {
     image(capture, 0, 0, 800,600);
     fill(255,0,0);
-    ellipse(noseX, noseY, 30 , 30);
+    ellipse(reyeX, reyeY,  30);
+    ellipse(leyeX, leyeY,  30);
+
+
     
 }
 
