@@ -126,6 +126,7 @@ function draw()
 let capture;
 let posenet;
 let noseX,noseY;
+let singlePose;
 
 function setup()
 {
@@ -144,7 +145,7 @@ function receivedPoses(poses)
     if(poses.length > 0)
     {
         singlePose = poses [0];
-        noseX = singlePose.pose.nose.x;
+        noseX = singlePose.pose.nose.x; //cordination stores under nose x  nose y vasriable
         noseY = singlePose.pose.nose.y;
     }
 
@@ -160,5 +161,8 @@ function modelLoaded()
 function draw()
 {
     image(capture, 0, 0, 800,600);
+    fill(255,0,0);
+    ellipse(noseX, noseY, 30 , 30);
+    
 }
 
