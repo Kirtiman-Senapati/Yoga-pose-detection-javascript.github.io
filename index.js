@@ -133,7 +133,7 @@ let singlePose ,skeleton;
 let img1;
 function setup()
 {
-    createCanvas(1500,500);
+    createCanvas(800,500);
     capture = createCapture(VIDEO)
     capture.hide();
     posenet = ml5.poseNet(capture, modelLoaded);
